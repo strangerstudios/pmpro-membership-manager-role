@@ -2,8 +2,8 @@
 Contributors: strangerstudios
 Tags: pmpro, membership, role
 Requires at least: 3.5
-Tested up to: 3.9.1
-Stable tag: .1.1
+Tested up to: 4.3
+Stable tag: .2
 
 == Description ==
 
@@ -28,6 +28,9 @@ The Membership Manager role also adds specific capabilities for each page under 
 Please post it in the issues section of GitHub and we'll fix it as soon as we can. Thanks for helping. https://github.com/strangerstudios/pmpro-gift-levels/issues
 
 == Changelog ==
+= .2 =
+* Fixes so membership managers can view users and edit membership levels from the profile page.
+
 = .1.1 =
 * Added readme.txt
 

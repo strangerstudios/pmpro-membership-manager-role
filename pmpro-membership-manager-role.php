@@ -3,7 +3,7 @@
 Plugin Name: Paid Memberships Pro - Membership Manager Role Add On
 Plugin URI: http://www.paidmembershipspro.com/pmpro-membership-manager-role/
 Description: Adds a Membership Manager role to WordPress with access to PMPro settings and reports.
-Version: .1.1
+Version: .2
 Author: Stranger Studios
 Author URI: http://www.strangerstudios.com
 */
@@ -29,7 +29,13 @@ function pmprommr_activation()
         'pmpro_orderscsv' => true,
 		'pmpro_discountcodes' => true,		
         'read' => true,
-		'edit_users' => true
+		'list_users' => true,
+		'add_users' => true,
+		'remove_users' => true,
+		'create_users' => true,
+		'delete_users' => true,
+		'promote_users' => true,
+		'edit_users' => true,
     ));
 }
 function pmprommr_deactivation()
@@ -38,6 +44,15 @@ function pmprommr_deactivation()
 }
 register_activation_hook(__FILE__, 'pmprommr_activation');
 register_deactivation_hook(__FILE__, 'pmprommr_deactivation');
+
+/*
+	Allow membership managers (and anyone with edit_users cap) to also change membership level.
+*/
+function pmprommr_pmpro_edit_member_capability($cap)
+{
+	return 'edit_users';
+}
+add_filter('pmpro_edit_member_capability', 'pmprommr_pmpro_edit_member_capability');
 
 /*
 Function to add links to the plugin row meta
