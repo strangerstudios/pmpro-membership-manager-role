@@ -55,7 +55,45 @@ function pmprommr_pmpro_edit_member_capability($cap)
 add_filter('pmpro_edit_member_capability', 'pmprommr_pmpro_edit_member_capability');
 
 /*
-Function to add links to the plugin row meta
+	Keep membership managers from assigning the editor or administrator role
+*/
+function pmprommr_editable_roles($roles) {
+	if(current_user_can('pmpro_membership_manager')) {
+		//filter in case you want to extend this or change it
+		$restricted_roles = apply_filters('pmprommr_restricted_roles', array('administrator', 'editor'));
+		if(!empty($restricted_roles)) {
+			foreach($restricted_roles as $role) {
+				if(isset($roles[$role]))
+					unset($roles[$role]);
+			}
+		}
+	}
+
+	return $roles;
+}
+add_filter('editable_roles', 'pmprommr_editable_roles');
+
+/*
+	Keep membership managers from editing users with restricted roles.
+*/
+function pmprommr_admin_init_restrict_editable_users() {
+	if(current_user_can('pmpro_membership_manager') && $GLOBALS['pagenow'] == 'user-edit.php') {
+		$restricted_roles = apply_filters('pmprommr_restricted_roles', array('administrator', 'editor'));
+
+		$user_id = intval($_REQUEST['user_id']);
+		
+		foreach($restricted_roles as $role) {
+			if(user_can($user_id, $role)) {
+				wp_die(sprintf(__('You are not authorized to edit users with the %s role.', 'pmprommr'), $role));
+			}
+		}
+
+	}
+}
+add_action('admin_init', 'pmprommr_admin_init_restrict_editable_users');
+
+/*
+	Function to add links to the plugin row meta
 */
 function pmprommr_plugin_row_meta($links, $file) {
 	if(strpos($file, 'pmpro-membership-manager-role.php') !== false)

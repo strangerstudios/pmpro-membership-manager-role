@@ -2,8 +2,8 @@
 Contributors: strangerstudios
 Tags: pmpro, membership, role
 Requires at least: 3.5
-Tested up to: 4.3
-Stable tag: .2
+Tested up to: 4.5.3
+Stable tag: .3
 
 == Description ==
 
@@ -28,8 +28,11 @@ The Membership Manager role also adds specific capabilities for each page under 
 Please post it in the issues section of GitHub and we'll fix it as soon as we can. Thanks for helping. https://github.com/strangerstudios/pmpro-gift-levels/issues
 
 == Changelog ==
+= .3 =
+* Removed the ability for membership managers to edit administrators/editors or change users to or from the administrator/editor role. You can filter which roles are restricted using the pmprommr_restricted_roles filter; return an array of role names.
+
 = .2 =
-* Fixes so membership managers can view users and edit membership levels from the profile page.
+* Fixes so membership managers cannot edit a user's role.
 
 = .1.1 =
 * Added readme.txt
