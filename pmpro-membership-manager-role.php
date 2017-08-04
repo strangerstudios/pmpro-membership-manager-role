@@ -5,7 +5,7 @@ Plugin URI: https://www.paidmembershipspro.com/add-ons/pmpro-membership-manager-
 Description: Adds a Membership Manager role to WordPress with access to PMPro settings and reports.
 Version: .3.1
 Author: Stranger Studios
-Author URI: http://www.strangerstudios.com
+Author URI: https://www.paidmembershipspro.com
 */
 /*
 	Setup role on admin init
