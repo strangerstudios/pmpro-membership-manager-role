@@ -12,7 +12,8 @@ Author URI: https://www.paidmembershipspro.com
 */
 function pmprommr_setup_role() {
 	remove_role('pmpro_membership_manager');	//in case we updated the caps below
-	add_role('pmpro_membership_manager', 'Membership Manager', array(
+
+	$caps = apply_filters( 'pmpro_membership_manager_caps', array(
         'pmpro_memberships_menu' => true,
 		'pmpro_edit_memberships' => true,
         'pmpro_membershiplevels' => true,
@@ -36,7 +37,10 @@ function pmprommr_setup_role() {
 		'delete_users' => true,
 		'promote_users' => true,
 		'edit_users' => true,
-    ));
+		'view_admin_dashboard' => true
+	    ));	
+
+	add_role('pmpro_membership_manager', 'Membership Manager', $caps );
 }
 add_action('admin_init', 'pmprommr_setup_role');
 
