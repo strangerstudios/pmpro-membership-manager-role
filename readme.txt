@@ -30,6 +30,8 @@ Please post it in the issues section of GitHub and we'll fix it as soon as we ca
 == Changelog ==
 = .3.2 =
 * BUG FIX/ENHANCEMENT: Added the pmpro_dashboard capability so users will have access to the new dashboard in PMPro version 2.0+.
+* BUG FIX/ENHANCEMENT: Now allowing Super Admins on multisite installs to edit admin users.
+* ENHANCEMENT: Added pmpro_membership_manager_caps filter so other plugins can add caps for membership managers.
 
 = .3.1 =
 * BUG FIX/ENHANCEMENT: Loading the Membership Manager role on admin init instead of activation so capabilities are updated when the plugin updates.
