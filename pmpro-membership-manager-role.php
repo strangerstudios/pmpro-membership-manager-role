@@ -78,11 +78,11 @@ function pmprommr_editable_roles($roles) {
 }
 add_filter('editable_roles', 'pmprommr_editable_roles');
 
-/*
-	Keep membership managers from editing users with restricted roles.
-*/
+/**
+ * Keep membership managers from editing users with restricted roles, but still allow super admins to edit admins.
+ */
 function pmprommr_admin_init_restrict_editable_users() {
-	if(current_user_can('pmpro_membership_manager') && $GLOBALS['pagenow'] == 'user-edit.php') {
+	if(!current_user_can('manage_network') && current_user_can('pmpro_membership_manager') && $GLOBALS['pagenow'] == 'user-edit.php') {
 		$restricted_roles = apply_filters('pmprommr_restricted_roles', array('administrator', 'editor'));
 
 		$user_id = intval($_REQUEST['user_id']);
