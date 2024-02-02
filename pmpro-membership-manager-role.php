@@ -14,21 +14,21 @@ function pmprommr_setup_role() {
 	remove_role('pmpro_membership_manager');	//in case we updated the caps below
 
 	$caps = apply_filters( 'pmpro_membership_manager_caps', array(
-        'pmpro_memberships_menu' => true,
+		'pmpro_memberships_menu' => true,
 		'pmpro_dashboard' => true,
 		'pmpro_edit_memberships' => true,
 		'pmpro_edit_members' => true,
-        'pmpro_membershiplevels' => true,
+		'pmpro_membershiplevels' => true,
 		'pmpro_pagesettings' => true,
-        'pmpro_emailsettings' => true,
-		'pmpro_paymentsettings' => true,        		
-        'pmpro_advancedsettings' => true, 
-        'pmpro_addons' => true,
+		'pmpro_emailsettings' => true,
+		'pmpro_paymentsettings' => true,
+		'pmpro_advancedsettings' => true,
+		'pmpro_addons' => true,
 		'pmpro_memberslist' => true,
-        'pmpro_memberslistcsv' => true,        
-        'pmpro_reports' => true,
+		'pmpro_memberslistcsv' => true,
+		'pmpro_reports' => true,
 		'pmpro_orders' => true,
-        'pmpro_orderscsv' => true,
+		'pmpro_orderscsv' => true,
 		'pmpro_discountcodes' => true,
 		'pmpro_approvals' => true,
 		'pmpro_wizard' => true,
@@ -45,7 +45,6 @@ function pmprommr_setup_role() {
 		'remove_users' => true,
 		'create_users' => true,
 		'delete_users' => true,
-		'promote_users' => true,
 		'edit_users' => true,
 		'view_admin_dashboard' => true
 	    ));	
