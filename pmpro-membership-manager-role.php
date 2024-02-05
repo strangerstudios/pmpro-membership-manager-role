@@ -16,7 +16,6 @@ function pmprommr_setup_role() {
 	$caps = apply_filters( 'pmpro_membership_manager_caps', array(
 		'pmpro_memberships_menu' => true,
 		'pmpro_dashboard' => true,
-		'pmpro_edit_memberships' => true,
 		'pmpro_edit_members' => true,
 		'pmpro_membershiplevels' => true,
 		'pmpro_pagesettings' => true,
@@ -38,7 +37,7 @@ function pmprommr_setup_role() {
 		'pmpro_subscriptions' => true,
 		'pmpro_discountcodes' => true,
 		'pmpro_userfields' => true,
-		'promote_user' => true,
+		'promote_users' => true,
 		'read' => true,
 		'list_users' => true,
 		'add_users' => true,
