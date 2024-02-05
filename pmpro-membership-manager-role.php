@@ -16,6 +16,7 @@ function pmprommr_setup_role() {
 	$caps = apply_filters( 'pmpro_membership_manager_caps', array(
 		'pmpro_memberships_menu' => true,
 		'pmpro_dashboard' => true,
+		'pmpro_edit_memberships' => true, // This is an old capability, we will be removing this in the near future for `pmpro_edit_members`
 		'pmpro_edit_members' => true,
 		'pmpro_membershiplevels' => true,
 		'pmpro_pagesettings' => true,
