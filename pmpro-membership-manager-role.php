@@ -73,7 +73,7 @@ register_deactivation_hook(__FILE__, 'pmprommr_deactivation');
 function pmprommr_pmpro_edit_member_capability( $capability ) {
 	
 	// Change the capability on installations before 3.0+
-	if ( PMPRO_VERSION < 3 ) {
+	if ( version_compare( '3.0.0', PMPRO_VERSION ) ) {
 		$capability = 'edit_users';
 	}
 
