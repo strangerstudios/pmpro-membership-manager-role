@@ -62,14 +62,24 @@ function pmprommr_deactivation()
 }
 register_deactivation_hook(__FILE__, 'pmprommr_deactivation');
 
-/*
-	Allow membership managers (and anyone with edit_users cap) to also change membership level.
-*/
-function pmprommr_pmpro_edit_member_capability($cap)
-{
-	return 'edit_users';
+/**
+ * Adjusts the capability from manage_options to edit_users for Membership Manager in Paid Memberships Pro < 3.0.
+ * 
+ * In Paid Memberships Pro 3.0+ we use a custom capability to allow editing of members and this is no longer needed.
+ *
+ * @param string $capability The capability needed to be allowed to edit users in Paid Memberships Pro.
+ * @return string $capability The WordPress capability, or custom capability to allow editing of members.
+ */
+function pmprommr_pmpro_edit_member_capability( $capability ) {
+	
+	// Change the capability on installations before 3.0+
+	if ( PMPRO_VERSION < 3 ) {
+		$capability = 'edit_users';
+	}
+
+	return $capability;
 }
-add_filter('pmpro_edit_member_capability', 'pmprommr_pmpro_edit_member_capability');
+add_filter( 'pmpro_edit_member_capability', 'pmprommr_pmpro_edit_member_capability', 5 );
 
 /*
 	Keep membership managers from assigning the editor or administrator role
