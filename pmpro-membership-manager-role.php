@@ -6,7 +6,18 @@ Description: Adds a Membership Manager role to WordPress with access to PMPro se
 Version: .3.2
 Author: Stranger Studios
 Author URI: https://www.paidmembershipspro.com
+Text Domain: pmpro-membership-manager-role
+Domain Path: /languages
 */
+
+/**
+ * Load the languages folder for translations.
+ */
+function pmprommr_load_textdomain(){
+	load_plugin_textdomain( 'pmpro-membership-manager-role', false, basename( dirname( __FILE__ ) ) . '/languages' ); 
+}
+add_action( 'plugins_loaded', 'pmprommr_load_textdomain' );
+
 /*
 	Setup role on admin init
 */
@@ -49,7 +60,7 @@ function pmprommr_setup_role() {
 		'view_admin_dashboard' => true
 	    ));	
 
-	add_role('pmpro_membership_manager', 'Membership Manager', $caps );
+	add_role('pmpro_membership_manager', __( 'Membership Manager', 'pmpro-membership-manager-role' ), $caps );
 }
 add_action('admin_init', 'pmprommr_setup_role');
 
@@ -112,7 +123,7 @@ function pmprommr_admin_init_restrict_editable_users() {
 		
 		foreach($restricted_roles as $role) {
 			if(user_can($user_id, $role)) {
-				wp_die(sprintf(__('You are not authorized to edit users with the %s role.', 'pmprommr'), $role));
+				wp_die( sprintf( esc_html__('You are not authorized to edit users with the %s role.', 'pmpro-membership-manager-role'), $role) );
 			}
 		}
 
@@ -127,8 +138,8 @@ function pmprommr_plugin_row_meta($links, $file) {
 	if(strpos($file, 'pmpro-membership-manager-role.php') !== false)
 	{
 		$new_links = array(
-			'<a href="' . esc_url('https://www.paidmembershipspro.com/add-ons/pmpro-membership-manager-role/')  . '" title="' . esc_attr( __( 'View Documentation', 'pmpro' ) ) . '">' . __( 'Docs', 'pmpro' ) . '</a>',
-			'<a href="' . esc_url('http://paidmembershipspro.com/support/') . '" title="' . esc_attr( __( 'Visit Customer Support Forum', 'pmpro' ) ) . '">' . __( 'Support', 'pmpro' ) . '</a>',
+			'<a href="' . esc_url('https://www.paidmembershipspro.com/add-ons/pmpro-membership-manager-role/')  . '" title="' . esc_attr( __( 'View Documentation', 'pmpro-membership-manager-role' ) ) . '">' . __( 'Docs', 'pmpro-membership-manager-role' ) . '</a>',
+			'<a href="' . esc_url('http://paidmembershipspro.com/support/') . '" title="' . esc_attr( __( 'Visit Customer Support Forum', 'pmpro-membership-manager-role' ) ) . '">' . __( 'Support', 'pmpro-membership-manager-role' ) . '</a>',
 		);
 		$links = array_merge($links, $new_links);
 	}
