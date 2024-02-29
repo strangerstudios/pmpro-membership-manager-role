@@ -1,9 +1,9 @@
 === PMPro Membership Manager Role ===
 Contributors: strangerstudios
 Tags: pmpro, membership, role
-Requires at least: 4
-Tested up to: 5.0.3
-Stable tag: .3.2
+Requires at least: 5.2
+Tested up to: 6.4
+Stable tag: 0.3.3
 
 == Description ==
 
@@ -28,6 +28,10 @@ The Membership Manager role also adds specific capabilities for each page under 
 Please post it in the issues section of GitHub and we'll fix it as soon as we can. Thanks for helping. https://github.com/strangerstudios/pmpro-gift-levels/issues
 
 == Changelog ==
+= 0.3.3 - 2024-02-29 =
+* ENHANCEMENT: Improved capability support for Paid Memberships Pro 3.0+
+* ENHANCEMENT: Added localization to the plugin to make strings translatable.
+
 = .3.2 =
 * BUG FIX/ENHANCEMENT: Added the pmpro_dashboard capability so users will have access to the new dashboard in PMPro version 2.0+.
 * BUG FIX/ENHANCEMENT: Now allowing Super Admins on multisite installs to edit admin users.
