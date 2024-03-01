@@ -1,4 +1,4 @@
-<!-- ![](pmpro-sample-banner.png) -->
+![](pmpro-membership-manager-role-banner.jpg)
 
 # [Paid Memberships Pro - Membership Manager Role](https://www.paidmembershipspro.com/add-ons/pmpro-membership-manager-role/) #
 
