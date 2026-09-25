@@ -10,6 +10,10 @@ Text Domain: pmpro-membership-manager-role
 Domain Path: /languages
 */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Load the languages folder for translations.
  */
@@ -119,11 +123,11 @@ function pmprommr_admin_init_restrict_editable_users() {
 	if(!current_user_can('manage_network') && current_user_can('pmpro_membership_manager') && $GLOBALS['pagenow'] == 'user-edit.php') {
 		$restricted_roles = apply_filters('pmprommr_restricted_roles', array('administrator', 'editor'));
 
-		$user_id = intval($_REQUEST['user_id']);
+		$user_id = isset( $_REQUEST['user_id'] ) ? intval( $_REQUEST['user_id'] ) : 0; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only; the ID is only used to block access to user-edit.php.
 		
 		foreach($restricted_roles as $role) {
 			if(user_can($user_id, $role)) {
-				wp_die( sprintf( esc_html__('You are not authorized to edit users with the %s role.', 'pmpro-membership-manager-role'), $role) );
+				wp_die( sprintf( esc_html__('You are not authorized to edit users with the %s role.', 'pmpro-membership-manager-role'), esc_html( $role ) ) );
 			}
 		}
 
