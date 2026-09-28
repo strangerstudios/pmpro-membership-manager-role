@@ -135,7 +135,7 @@ add_action('admin_init', 'pmprommr_admin_init_restrict_editable_users');
  * Keep membership managers from editing, promoting, deleting or removing users with restricted roles.
  *
  * This applies anywhere the edit_user, promote_user, delete_user or remove_user capabilities are checked,
- * including the Users screen, the REST API and the Paid Memberships Pro member edit screen.
+ * including the Users screen, the REST API and Paid Memberships Pro screens that check edit_user.
  *
  * @since TBD
  *
