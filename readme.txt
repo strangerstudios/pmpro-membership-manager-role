@@ -2,14 +2,14 @@
 Contributors: strangerstudios
 Tags: pmpro, membership, role
 Requires at least: 5.2
-Tested up to: 6.4
-Stable tag: 0.3.3
+Tested up to: 7.1
+Stable tag: 0.3.4
 
 == Description ==
 
 Features:
 * Give users the "Membership Manager" role to allow them to manage your Paid Memberships Pro settings, without complete administrator access.
-* Adds specific capabilities for each page under the Memberships menu in the WordPrss dashboard.
+* Adds specific capabilities for each page under the Memberships menu in the WordPress dashboard.
 
 Simply install and activate the plugin and the Membership Manager role will be added to your site.
 You can then assign the role to a user and they will be able to manage your Paid Memberships Pro settings, but nothing else.
@@ -25,9 +25,14 @@ The Membership Manager role also adds specific capabilities for each page under 
 
 = I found a bug in the plugin. =
 
-Please post it in the issues section of GitHub and we'll fix it as soon as we can. Thanks for helping. https://github.com/strangerstudios/pmpro-gift-levels/issues
+Please post it in the issues section of GitHub and we'll fix it as soon as we can. Thanks for helping. https://github.com/strangerstudios/pmpro-membership-manager-role/issues
 
 == Changelog ==
+= 0.3.4 - 2026-09-28 =
+* SECURITY: Membership Managers can no longer edit, change the role of, delete, or switch to users with restricted roles (administrators and editors by default). #21 (@dparker1005)
+* SECURITY: Added direct file access protection and escaped the restricted role name in the edit user error message. #20 (@dparker1005)
+* BUG FIX: Fixed an undefined index notice on the edit user page when no `user_id` is passed. #20 (@dparker1005)
+
 = 0.3.3 - 2024-02-29 =
 * ENHANCEMENT: Improved capability support for Paid Memberships Pro 3.0+
 * ENHANCEMENT: Added localization to the plugin to make strings translatable.

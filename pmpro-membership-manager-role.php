@@ -3,7 +3,7 @@
 Plugin Name: Paid Memberships Pro - Membership Manager Role Add On
 Plugin URI: https://www.paidmembershipspro.com/add-ons/pmpro-membership-manager-role/
 Description: Adds a Membership Manager role to WordPress with access to PMPro settings and reports.
-Version: 0.3.3
+Version: 0.3.4
 Author: Stranger Studios
 Author URI: https://www.paidmembershipspro.com
 Text Domain: pmpro-membership-manager-role
@@ -141,7 +141,7 @@ add_action('admin_init', 'pmprommr_admin_init_restrict_editable_users');
  * This applies anywhere the edit_user, promote_user, delete_user or remove_user capabilities are checked,
  * including the Users screen, the REST API and Paid Memberships Pro screens that check edit_user.
  *
- * @since TBD
+ * @since 0.3.4
  *
  * @param string[] $caps    The primitive capabilities required.
  * @param string   $cap     The capability being checked.
