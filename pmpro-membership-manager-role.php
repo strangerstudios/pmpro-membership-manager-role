@@ -135,6 +135,48 @@ function pmprommr_admin_init_restrict_editable_users() {
 }
 add_action('admin_init', 'pmprommr_admin_init_restrict_editable_users');
 
+/**
+ * Keep membership managers from editing, promoting, deleting or removing users with restricted roles.
+ *
+ * This applies anywhere the edit_user, promote_user, delete_user or remove_user capabilities are checked,
+ * including the Users screen, the REST API and Paid Memberships Pro screens that check edit_user.
+ *
+ * @since TBD
+ *
+ * @param string[] $caps    The primitive capabilities required.
+ * @param string   $cap     The capability being checked.
+ * @param int      $user_id The ID of the user whose capabilities are being checked.
+ * @param array    $args    Additional arguments. $args[0] is the ID of the user being acted on.
+ * @return string[] The primitive capabilities required.
+ */
+function pmprommr_map_meta_cap_restrict_editable_users( $caps, $cap, $user_id, $args ) {
+	if ( ! in_array( $cap, array( 'edit_user', 'promote_user', 'delete_user', 'remove_user' ), true ) || empty( $args[0] ) ) {
+		return $caps;
+	}
+
+	// Users can still act on their own account.
+	$target_user_id = (int) $args[0];
+	if ( $target_user_id === (int) $user_id ) {
+		return $caps;
+	}
+
+	// Only restrict membership managers. Site admins and super admins can still edit restricted roles.
+	if ( ! user_can( $user_id, 'pmpro_membership_manager' ) || user_can( $user_id, 'manage_options' ) || user_can( $user_id, 'manage_network' ) ) {
+		return $caps;
+	}
+
+	$restricted_roles = apply_filters( 'pmprommr_restricted_roles', array( 'administrator', 'editor' ) );
+	foreach ( (array) $restricted_roles as $role ) {
+		if ( user_can( $target_user_id, $role ) ) {
+			$caps[] = 'do_not_allow';
+			break;
+		}
+	}
+
+	return $caps;
+}
+add_filter( 'map_meta_cap', 'pmprommr_map_meta_cap_restrict_editable_users', 10, 4 );
+
 /*
 	Function to add links to the plugin row meta
 */
