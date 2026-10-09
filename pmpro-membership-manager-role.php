@@ -96,6 +96,21 @@ function pmprommr_pmpro_edit_member_capability( $capability ) {
 }
 add_filter( 'pmpro_edit_member_capability', 'pmprommr_pmpro_edit_member_capability', 5 );
 
+/**
+ * Exempt membership managers from PMPro's toolbar hiding.
+ *
+ * @param bool $hide Whether PMPro should hide the toolbar.
+ * @return bool Whether PMPro should hide the toolbar.
+ */
+function pmprommr_pmpro_hide_toolbar( $hide ) {
+	if ( current_user_can( 'pmpro_membership_manager' ) ) {
+		return false;
+	}
+
+	return $hide;
+}
+add_filter( 'pmpro_hide_toolbar', 'pmprommr_pmpro_hide_toolbar' );
+
 /*
 	Keep membership managers from assigning the editor or administrator role
 */
