@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Paid Memberships Pro - Membership Manager Role Add On plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Paid Memberships Pro - Membership Manager Role Add On 0.3.4\n"
+"Project-Id-Version: Paid Memberships Pro - Membership Manager Role Add On 0.3.5\n"
 "Report-Msgid-Bugs-To: info@paidmembershipspro.com\n"
 "Last-Translator: Paid Memberships Pro <info@paidmembershipspro.com>\n"
 "Language-Team: Paid Memberships Pro <info@paidmembershipspro.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-28T16:45:27+00:00\n"
+"POT-Creation-Date: 2026-11-13T17:18:05+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: pmpro-membership-manager-role\n"
@@ -41,31 +41,37 @@ msgstr ""
 
 #: pmpro-membership-manager-role.php:63
 #: pmpro-membership-manager-role.php:67
+#: pmpro-membership-manager-role.php:68
 msgid "Membership Manager"
 msgstr ""
 
 #: pmpro-membership-manager-role.php:126
 #: pmpro-membership-manager-role.php:130
+#: pmpro-membership-manager-role.php:146
 #, php-format
 msgid "You are not authorized to edit users with the %s role."
 msgstr ""
 
 #: pmpro-membership-manager-role.php:141
 #: pmpro-membership-manager-role.php:187
+#: pmpro-membership-manager-role.php:203
 msgid "View Documentation"
 msgstr ""
 
 #: pmpro-membership-manager-role.php:141
 #: pmpro-membership-manager-role.php:187
+#: pmpro-membership-manager-role.php:203
 msgid "Docs"
 msgstr ""
 
 #: pmpro-membership-manager-role.php:142
 #: pmpro-membership-manager-role.php:188
+#: pmpro-membership-manager-role.php:204
 msgid "Visit Customer Support Forum"
 msgstr ""
 
 #: pmpro-membership-manager-role.php:142
 #: pmpro-membership-manager-role.php:188
+#: pmpro-membership-manager-role.php:204
 msgid "Support"
 msgstr ""
