@@ -3,7 +3,7 @@ Contributors: strangerstudios
 Tags: pmpro, membership, role
 Requires at least: 5.2
 Tested up to: 7.1
-Stable tag: 0.3.4
+Stable tag: 0.3.5
 
 == Description ==
 
@@ -28,6 +28,10 @@ The Membership Manager role also adds specific capabilities for each page under 
 Please post it in the issues section of GitHub and we'll fix it as soon as we can. Thanks for helping. https://github.com/strangerstudios/pmpro-membership-manager-role/issues
 
 == Changelog ==
+= 0.3.5 - 2026-11-13 =
+* ENHANCEMENT: Membership Managers can now export the Sales and Revenue report to CSV. #22 (@dparker1005)
+* BUG FIX: Membership Managers who also have the Subscriber role now keep the toolbar when PMPro's Hide Toolbar setting is on. #23 (@dparker1005)
+
 = 0.3.4 - 2026-09-28 =
 * SECURITY: Membership Managers can no longer edit, change the role of, delete, or switch to users with restricted roles (administrators and editors by default). #21 (@dparker1005)
 * SECURITY: Added direct file access protection and escaped the restricted role name in the edit user error message. #20 (@dparker1005)
