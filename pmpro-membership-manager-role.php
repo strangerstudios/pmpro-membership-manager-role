@@ -50,6 +50,7 @@ function pmprommr_setup_role() {
 		'pmpro_emailtemplates' => true,
 		'pmpro_loginscsv' => true,
 		'pmpro_reportscsv' => true,
+		'pmpro_sales_report_csv' => true,
 		'pmpro_subscriptions' => true,
 		'pmpro_discountcodes' => true,
 		'pmpro_userfields' => true,
