@@ -26,8 +26,6 @@ add_action( 'plugins_loaded', 'pmprommr_load_textdomain' );
 	Setup role on admin init
 */
 function pmprommr_setup_role() {
-	remove_role('pmpro_membership_manager');	//in case we updated the caps below
-
 	$caps = apply_filters( 'pmpro_membership_manager_caps', array(
 		'pmpro_memberships_menu' => true,
 		'pmpro_dashboard' => true,
@@ -65,7 +63,17 @@ function pmprommr_setup_role() {
 		'view_admin_dashboard' => true
 	    ));	
 
-	add_role('pmpro_membership_manager', __( 'Membership Manager', 'pmpro-membership-manager-role' ), $caps );
+	$name = __( 'Membership Manager', 'pmpro-membership-manager-role' );
+
+	// Only rebuild the role if its name or caps have changed. This avoids writing the roles option on every admin page load.
+	$roles = wp_roles()->roles;
+	if ( isset( $roles['pmpro_membership_manager'] ) && $roles['pmpro_membership_manager']['name'] === $name && $roles['pmpro_membership_manager']['capabilities'] == $caps ) {
+		return;
+	}
+
+	remove_role('pmpro_membership_manager');	//in case we updated the caps above
+
+	add_role('pmpro_membership_manager', $name, $caps );
 }
 add_action('admin_init', 'pmprommr_setup_role');
 
